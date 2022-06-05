@@ -1,3 +1,8 @@
 export const parseEnv = () => {
-    // Write your code here 
+  return Object.entries(process.env)
+    .filter(([key]) => (/^RSS_/).test(key) ? true : false)
+    .map(([key, value]) => `${key}=${value}`)
+    .join('; ');  
 };
+  
+console.log(parseEnv());
